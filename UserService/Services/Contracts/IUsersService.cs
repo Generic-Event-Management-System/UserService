@@ -1,6 +1,9 @@
-﻿namespace UserService.Services.Contracts
+﻿using UserService.Models.Dto;
+using UserService.Models.Entities;
+
+namespace UserService.Services.Contracts
 {
-    public class IUsersService
+    public interface IUsersService
     {
     }
 }
