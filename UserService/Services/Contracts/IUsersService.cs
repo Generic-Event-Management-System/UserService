@@ -9,5 +9,6 @@ namespace UserService.Services.Contracts
         Task<IEnumerable<User>> GetUsers();
         Task<User> GetUser(int userId);
         Task<User> UpdateUser(int userId, UserDto userDto);
+        Task DeleteUser(int userId);
     }
 }

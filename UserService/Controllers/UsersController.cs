@@ -39,5 +39,12 @@ namespace UserService.Controllers
         {
             return Ok(await _usersService.UpdateUser(id,userDto));
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            await _usersService.DeleteUser(id);
+            return NoContent();
+        }
     }
 }

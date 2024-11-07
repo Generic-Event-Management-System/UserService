@@ -51,6 +51,15 @@ namespace UserService.Services
             return user;
         }
 
+        public async Task DeleteUser(int userId)
+        {
+            var user = await GetUserOrThrowNotFoundException(userId);
+
+            _dbContext.Users.Remove(user);
+
+            await _dbContext.SaveChangesAsync();
+        }
+
         private async Task<User> GetUserOrThrowNotFoundException(int userId)
         {
             var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == userId);
