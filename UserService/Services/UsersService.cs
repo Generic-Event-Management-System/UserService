@@ -35,9 +35,9 @@ namespace UserService.Services
             return _dbContext.Users.ToList();
         }
 
-        public async Task<User> GetUser(int id)
+        public async Task<User> GetUser(int userId)
         {
-            return await GetUserOrThrowNotFoundException(id);
+            return await GetUserOrThrowNotFoundException(userId);
         }
 
         public async Task<User> UpdateUser(int userId, UserDto userDto)
@@ -51,9 +51,9 @@ namespace UserService.Services
             return user;
         }
 
-        private async Task<User> GetUserOrThrowNotFoundException(int id)
+        private async Task<User> GetUserOrThrowNotFoundException(int userId)
         {
-            var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
+            var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == userId);
 
             if (user == null)
                 throw new NotFoundException("User not found.");
