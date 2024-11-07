@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using SharedUtilities.Middleware;
 using UserService.Persistence;
 using UserService.Services;
 using UserService.Services.Contracts;
@@ -19,6 +20,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
