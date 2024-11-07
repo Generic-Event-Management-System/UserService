@@ -21,5 +21,11 @@ namespace UserService.Controllers
         {
             return Ok(await _usersService.CreateUser(userDto));
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetUsers()
+        {
+            return Ok(await _usersService.GetUsers());
+        }
     }
 }

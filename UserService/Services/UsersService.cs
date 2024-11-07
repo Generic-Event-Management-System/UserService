@@ -27,5 +27,10 @@ namespace UserService.Services
 
             return user;
         }
+
+        public async Task<IEnumerable<User>> GetUsers()
+        {
+            return _dbContext.Users.ToList();
+        } 
     }
 }
