@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using UserService.Persistence;
+using UserService.Services;
+using UserService.Services.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,7 @@ builder.Services.AddDbContext<UserDbContext>(options =>
 builder.Services.AddAutoMapper(typeof(Program));
 
 // Add services to the container.
+builder.Services.AddScoped<IUsersService, UsersService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
