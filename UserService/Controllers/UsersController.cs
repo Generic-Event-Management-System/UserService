@@ -11,7 +11,7 @@ namespace UserService.Controllers
     {
         private readonly IUsersService _usersService;
 
-        public UsersController(IUsersService usersService) 
+        public UsersController(IUsersService usersService)
         {
             _usersService = usersService;
         }
@@ -32,6 +32,12 @@ namespace UserService.Controllers
         public async Task<IActionResult> GetUser(int id)
         {
             return Ok(await _usersService.GetUser(id));
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateUser(int id, UserDto userDto)
+        {
+            return Ok(await _usersService.UpdateUser(id,userDto));
         }
     }
 }

@@ -40,6 +40,17 @@ namespace UserService.Services
             return await GetUserOrThrowNotFoundException(id);
         }
 
+        public async Task<User> UpdateUser(int userId, UserDto userDto)
+        {
+            var user = await GetUserOrThrowNotFoundException(userId);
+
+            _mapper.Map(userDto, user);
+
+            await _dbContext.SaveChangesAsync();
+
+            return user;
+        }
+
         private async Task<User> GetUserOrThrowNotFoundException(int id)
         {
             var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
