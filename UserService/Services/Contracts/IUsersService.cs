@@ -5,5 +5,6 @@ namespace UserService.Services.Contracts
 {
     public interface IUsersService
     {
+        Task<User> CreateUser(UserDto userDto);
     }
 }
