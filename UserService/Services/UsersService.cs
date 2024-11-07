@@ -32,7 +32,7 @@ namespace UserService.Services
 
         public async Task<IEnumerable<User>> GetUsers()
         {
-            return _dbContext.Users.ToList();
+            return await _dbContext.Users.ToListAsync();
         }
 
         public async Task<User> GetUser(int userId)
