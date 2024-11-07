@@ -7,5 +7,6 @@ namespace UserService.Services.Contracts
     {
         Task<User> CreateUser(UserDto userDto);
         Task<IEnumerable<User>> GetUsers();
+        Task<User> GetUser(int id);
     }
 }

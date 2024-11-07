@@ -27,5 +27,11 @@ namespace UserService.Controllers
         {
             return Ok(await _usersService.GetUsers());
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetUser(int id)
+        {
+            return Ok(await _usersService.GetUser(id));
+        }
     }
 }
